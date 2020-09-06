@@ -1,12 +1,22 @@
 import sys
-from os import listdir
+import os
 import re
+import shutil
+from pathlib import Path
+
+stlm = sys.argv[1]
+
+stlpdm = Path(stlm)
+if stlpdm.exists() and stlpdm.is_dir():
+	shutil.rmtree(stlm)
+os.mkdir(stlm)
+shutil.copyfile('style.css', stlm + '/style.css')
 
 nidrsh = open('nidrsh.html').read()
 
-for fn in listdir('prkrnani'):
+for fn in os.listdir('prkrnani'):
 	with open('prkrnani/' + fn) as f:
-		with open(sys.argv[1] + '/' + fn + '.html', 'w') as of:
+		with open(stlm + '/' + fn + '.html', 'w') as of:
 			lekym = nidrsh
 
 			s = ('' if fn == 'index' else f'<h2>{fn}</h2>') + f.read()
