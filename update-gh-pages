@@ -23,8 +23,8 @@ git init
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
-git add --all
-git commit -m 'स्थाप॑नम्'
+git add -A
+git commit -am 'स्थाप॑नम्'
 
 git commit -m "updated GitHub Pages"
 if [ $? -ne 0 ]; then
