@@ -5,7 +5,7 @@ with open('index.html', 'w') as f:
 		<title>स्व॒र॒प्र॒बो॒धः</title>
 	</head>
 	<body>
-		स्व॒र॒प्र॒बो॒धः
+स्व॒र॒प्र॒बो॒धः
 	</body>
 </html>
 ''')
