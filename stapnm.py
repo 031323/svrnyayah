@@ -1,4 +1,4 @@
-with open('index.html', 'w') as f:
+with open('dist/index.html', 'w') as f:
 	f.write('''
 <html>
 	<head>
