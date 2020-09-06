@@ -19,18 +19,15 @@ mkdir dist
 python stapnm.py
 cd dist
 git init
-
 git config user.name "$GITHUB_ACTOR"
 git config user.email "${GITHUB_ACTOR}@bots.github.com"
 
-git add -A
-git commit -am 'स्थाप॑नम्'
-
-git commit -m "updated GitHub Pages"
+git add --all
+git commit -am'स्थाप॑नम्'
 if [ $? -ne 0 ]; then
     echo "nothing to commit"
     exit 0
 fi
 
-git remote set-url "$remote_name" "$repo_uri" # includes access token
-git push --force-with-lease "$remote_name" "$target_branch"
+git remote add  "$remote_name" "$repo_uri" -t "$target_branch" # includes access token
+git push --force --set-upstream "$remote_name" "$target_branch"
