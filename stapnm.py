@@ -27,7 +27,7 @@ def anukrmh(fn):
 	if k == -1:
 		with open('prkrnani/' + fn) as f:
 			i = len(anukrmni)
-			anukrmni.append([fn, ('' if fn == 'index' else f'<h2>{fn}</h2>') + f.read() + '<hr>'])
+			anukrmni.append([fn, ('' if fn == 'index' else f'<h3>{fn}</h3>') + f.read() + '<hr>'])
 			for l in re.findall('\([^\)]*\)', anukrmni[i][1]):
 				ln = [w.strip() for w in l[1:-1].split(', ')]
 				href, ls = (ln[1], '↗') if '.' in ln[1] else (ln[1] + '.html', '')
