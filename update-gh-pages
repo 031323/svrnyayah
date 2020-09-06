@@ -19,6 +19,10 @@ mkdir dist
 python stapnm.py
 cd dist
 git init
+
+git config user.name "$GITHUB_ACTOR"
+git config user.email "${GITHUB_ACTOR}@bots.github.com"
+
 git add --all
 git commit -m 'स्थाप॑नम्'
 
