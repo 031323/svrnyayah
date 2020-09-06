@@ -29,5 +29,7 @@ if [ $? -ne 0 ]; then
     exit 0
 fi
 
+git branch -m "$target_branch"
+
 git remote add  "$remote_name" "$repo_uri" -t "$target_branch" # includes access token
 git push --force --set-upstream "$remote_name" "$target_branch"
