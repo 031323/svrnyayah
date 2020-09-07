@@ -45,6 +45,6 @@ for a in anukrmni:
 	s = a[1]
 	with open(stlm + '/' + fn + '.html', 'w') as of:
 		lekym = nidrsh
-		for r in [['प्र॒क॒र॒ण॒ना॒म', 'स्व॒र॒बो॒धः' + ('' if fn == 'index' else ' | ' + fn)], ['त॒त्त्वम्', s]]:
+		for r in [['प्र॒क॒र॒ण॒ना॒म', 'स्व॒र॒न्या॒याः' + ('' if fn == 'index' else ' | ' + fn)], ['त॒त्त्वम्', s]]:
 			lekym = lekym.replace('[' + r[0] + ']', r[1])
 		of.write(lekym)
