@@ -32,7 +32,7 @@ def anukrmh(fn):
 				ln = [w.strip() for w in l[1:-1].split(re.findall(' *, *', l)[0])]
 				def sutrsnkya(s):
 					return len(re.findall('^[0-9]+\.[0-9]+\.[0-9]+$', s))
-				href, ls = (('https://ashtadhyayi.github.io//sutra-details/?sutra=' + ln[1], '') if sutrsnkya(ln[1]) else (ln[1], ' ↱')) if '.' in ln[1] else (ln[1] + '.html', '')
+				href, ls = (('https://ashtadhyayi.github.io//sutra-details/?sutra=' + ln[1], '') if sutrsnkya(ln[1]) else (ln[1], '↱')) if '.' in ln[1] else (ln[1] + '.html', '')
 
 				if sutrsnkya(ln[1]):
 					ln[0] = '<b>' + ln[0] + '</b>'
