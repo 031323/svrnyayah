@@ -29,10 +29,15 @@ def anukrmh(fn):
 			i = len(anukrmni)
 			anukrmni.append([fn, ('' if fn == 'index' else f'<h3>{fn}</h3>') + f.read() + '<hr>'])
 			for l in re.findall('\([^\)]*\)', anukrmni[i][1]):
-				ln = [w.strip() for w in l[1:-1].split(', ')]
-				href, ls = (ln[1], '↗') if '.' in ln[1] else (ln[1] + '.html', '')
+				ln = [w.strip() for w in l[1:-1].split(re.findall(' *, *', l)[0])]
+				def sutrsnkya(s):
+					return len(re.findall('^[0-9]+\.[0-9]+\.[0-9]+$', s))
+				href, ls = (('https://ashtadhyayi.github.io//sutra-details/?sutra=' + ln[1], '') if sutrsnkya(ln[1]) else (ln[1], '↗')) if '.' in ln[1] else (ln[1] + '.html', '')
+
+				if sutrsnkya(ln[1]):
+					ln[0] = '<b>' + ln[0] + '</b>'
 				anukrmni[i][1] = anukrmni[i][1].replace(l, f'<a href="{href}">{ln[0] + ls}</a>')
-				if not ls:
+				if not '.' in ln[1]:
 					anukrmni[anukrmh(ln[1])][1] += '' if fn == 'index' else f'<a href="{fn}.html">{fn}</a><br>'
 		return i
 	else:
@@ -47,4 +52,4 @@ for a in anukrmni:
 		lekym = nidrsh
 		for r in [['प्र॒क॒र॒ण॒ना॒म', ('' if fn == 'index' else fn + ' | ') + 'स्व॒र॒न्या॒याः'], ['त॒त्त्वम्', s]]:
 			lekym = lekym.replace('[' + r[0] + ']', r[1])
-		of.write(lekym)
+		of.write(lekym.replace('/a><a ', '/a>-<a '))
